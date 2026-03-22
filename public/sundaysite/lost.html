@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tester</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
+    <style type="text/css">
+      body {
+        background-color: #98d6a9;
+      }
+      html {
+        cursor: url("https://i.imgur.com/8Jhi9oS.png"), auto;
+      }
+      .coin {
+        position: absolute;
+        top: 50%;
+        left: 25%;
+        transform: translate(-50%, -50%);
+        height: 100px;
+        width: 100px;
+        z-index: 1;
+      }
+      .bill {
+        position: absolute;
+        top: 67%;
+        left: 75%;
+        transform: translate(-50%, -50%);
+        height: 100px;
+        width: 100px;
+        z-index: 1;
+      }
+      .can {
+        position: absolute;
+        top: 80%;
+        left: 75%;
+        transform: translate(-50%, -50%);
+        height: 100px;
+        width: 100px;
+        z-index: 1;
+      }
+      .keys {
+        position: absolute;
+        top: 60%;
+        left: 42%;
+        transform: translate(-50%, -50%);
+        height: 100px;
+        width: 100px;
+        z-index: 1;
+      }
+
+      .item-button {
+        background: none;
+        border: none;
+        padding: 0;
+        margin: 0;
+        opacity: 0;
+        transition: opacity 0.1s;
+      }
+
+      .item-button.revealed {
+        opacity: 1;
+      }
+    </style>
+  </head>
+  <body>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+      crossorigin="anonymous"
+    ></script>
+
+    <audio id="hoverSound" src="/images/beep.mp3" preload="auto"></audio>
+
+    <div class="col-md-12" style="position: relative">
+      <img src="/images/beach.jpg" class="img-thumbnail" />
+      <div class="col-xs-6">
+        <button class="item-button" id="coin">
+          <img class="coin" src="/images/coin.png" alt="coin" />
+        </button>
+        <button class="item-button">
+          <img class="bill" src="/images/100-bill.png" alt="bill" />
+        </button>
+        <button class="item-button">
+          <img class="can" src="/images/crushed-can.png" alt="can" />
+        </button>
+        <button class="item-button">
+          <img class="keys" src="/images/keys.png" alt="keys" />
+        </button>
+      </div>
+    </div>
+
+    <script>
+      const coin1 = document.getElementById("coin");
+      const hover = document.getElementById("hoverSound");
+
+      //   document.addEventListener("click", function (e) {
+      //     if (!e.target.closest(".item-button")) {
+      //       buttons.forEach((btn) => btn.classList.add("revealed"));
+      //     }
+      //   });
+
+      coin1.addEventListener(
+        "mouseover",
+        function () {
+          [].forEach.call(audios, function (audio) {
+            audio.play();
+          });
+        },
+        false,
+      );
+
+      hover.addEventListener(
+        "mouseleave",
+        function () {
+          hover.pause();
+          hover.currentTime = 0;
+        },
+        false,
+      );
+    </script>
+    <footer
+      style="
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        padding-bottom: 0.5em;
+        font-size: 1vw;
+      "
+    >
+      <p>
+        This is a
+        <a href="https://sundaysites.cafe/">Sunday Site</a>
+        made by
+        <a href="https://luwam.vercel.app/sunday_site"> Luwam</a>.
+      </p>
+    </footer>
+  </body>
+</html>
